@@ -47,6 +47,11 @@ There's also a fully commented Program which puts a Smiley on the Mark 2's PPU S
 [PBPU Smiley (Binary)](./examples/pbpuSmiley.asm.bin)
 [Link to Video Showcasing this Program on the Mark 2](https://twitter.com/pixel_brush/status/1390186715332153346?s=20)
 
+### Important to remember when Programming
+- You only have 256 Bytes of ROM, so your Program can't be bigger than that without a cheaty workaround
+- Only 256 4-Bit Bytes of RAM (4 of which are reserved for the 4x4 Screen Matrix)
+- Only 4-Bit Math
+- No Input whatsoever (Unless one of the RAM Locations is used for it in some cheaty workaround way)
 
 # History
 ### Original Goal
