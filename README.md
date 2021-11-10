@@ -39,13 +39,16 @@ I recently made a custom Assembler in Python for the PBPU Mk.4 according to this
 Simply put your .asm file in as a Command-Line Argument and it should spit out an Assembled .bin file.
 
 ### Syntax Highlighting for Notepad++
-[Just seems useful](./pbpuAssembly.xml)
+[Just seems useful to have when Programming](./pbpuAssembly.xml)
 
 ### Examples
 There's also a fully commented Program which puts a Smiley on the Mark 2's PPU Screen.
+
 [PBPU Smiley (Assembly)](./examples/pbpuSmiley.asm)
+
 [PBPU Smiley (Binary)](./examples/pbpuSmiley.asm.bin)
-[Link to Video Showcasing this Program on the Mark 2](https://twitter.com/pixel_brush/status/1390186715332153346?s=20)
+
+[Link to a Video Showcasing this Program on the Mark 2](https://twitter.com/pixel_brush/status/1390186715332153346?s=20)
 
 ### Important to remember when Programming
 - You only have 256 Bytes of ROM, so your Program can't be bigger than that without a cheaty workaround
@@ -70,7 +73,7 @@ It could only really perform Mathmatical operations and save these to RAM.
 The Mark 2 expanded on the Mark 1's instruction set, extending it by 4 additional Instructions, meant to add Jumps and Conditionals to aid in the CPU being Turing Complete. However, it unfortunatley failed due to the JMP Command being rather buggy, not even properly checking the Status of the Z Register.
 
 It also saw the introduction of the PBPU's Picture Processing Unit (PPU for short), a simple 4x4 LED Matrix that displayed 4 Bits as a single row of Pixels.
-[Link to Video Showcasing the Mk.2](https://twitter.com/pixel_brush/status/1390186715332153346?s=20)
+[Link to a Video Showcasing the Mk.2](https://twitter.com/pixel_brush/status/1390186715332153346?s=20)
 
 ##### Mark 3 (6th of May, 2021)
 The last Iteration of the PBPU, the Mark 3, introduced the final 16 instructions, allowing to more easily load values into Registers for more complex operations.
