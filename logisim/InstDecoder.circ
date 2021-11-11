@@ -166,10 +166,10 @@ end TCL_Generic;&#13;
     <tool lib="1" name="NOR Gate"/>
     <sep/>
     <tool lib="4" name="D Flip-Flop">
-      <a name="appearance" val="classic"/>
+      <a name="appearance" val="logisim_evolution"/>
     </tool>
     <tool lib="4" name="Register">
-      <a name="appearance" val="classic"/>
+      <a name="appearance" val="logisim_evolution"/>
     </tool>
   </toolbar>
   <circuit name="InstructionDecoder">
@@ -203,6 +203,10 @@ end TCL_Generic;&#13;
       <circ-port height="10" pin="250,940" width="10" x="75" y="165"/>
       <circ-port height="10" pin="360,10" width="10" x="45" y="105"/>
       <circ-port height="10" pin="490,10" width="10" x="45" y="115"/>
+      <circ-port height="10" pin="580,120" width="10" x="45" y="145"/>
+      <circ-port height="10" pin="580,140" width="10" x="45" y="155"/>
+      <circ-port height="10" pin="580,160" width="10" x="45" y="165"/>
+      <circ-port height="10" pin="580,180" width="10" x="45" y="175"/>
       <circ-port height="8" pin="70,20" width="8" x="46" y="56"/>
       <circ-port height="8" pin="70,40" width="8" x="46" y="66"/>
       <circ-port height="8" pin="70,60" width="8" x="46" y="76"/>
@@ -329,6 +333,36 @@ end TCL_Generic;&#13;
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
       <a name="label" val="NUM"/>
+      <a name="output" val="true"/>
+    </comp>
+    <comp lib="0" loc="(560,110)" name="Splitter">
+      <a name="appear" val="right"/>
+      <a name="fanout" val="4"/>
+      <a name="incoming" val="4"/>
+      <a name="spacing" val="2"/>
+    </comp>
+    <comp lib="0" loc="(580,120)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="D4"/>
+      <a name="output" val="true"/>
+    </comp>
+    <comp lib="0" loc="(580,140)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="D5"/>
+      <a name="output" val="true"/>
+    </comp>
+    <comp lib="0" loc="(580,160)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="D6"/>
+      <a name="output" val="true"/>
+    </comp>
+    <comp lib="0" loc="(580,180)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="D7"/>
       <a name="output" val="true"/>
     </comp>
     <comp lib="0" loc="(70,20)" name="Pin">
@@ -564,6 +598,7 @@ end TCL_Generic;&#13;
     <wire from="(480,130)" to="(480,140)"/>
     <wire from="(480,140)" to="(480,150)"/>
     <wire from="(480,180)" to="(480,230)"/>
+    <wire from="(540,110)" to="(560,110)"/>
     <wire from="(60,250)" to="(60,300)"/>
     <wire from="(60,300)" to="(200,300)"/>
     <wire from="(60,300)" to="(60,360)"/>
