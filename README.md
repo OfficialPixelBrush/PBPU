@@ -112,3 +112,7 @@ And one that shows how this translates to the Mark 4
 # Old Datasheet
 This is the Datasheet where I hand-compiled my Programs and came up with all the Instructions
 [(Old) PBPU Datasheet](./PBPUsheet.pdf)
+
+# To-do
+- Refine Assembler to accept relative jumps and calculate offsets
+- Macros to more easily jump
