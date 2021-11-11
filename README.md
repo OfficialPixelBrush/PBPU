@@ -22,7 +22,7 @@ PC2     |0-15     |Write to PC2[^4]|The given value is written to the lower 4 Bi
 JMP     |-        |Jump to PC[^5]|Transfers the Contents of the PC[^5] Register into the actual Program Counter, as long as the Z Register is 0|Mk.2
 RTX     |-        |Read from RAM to X|The contents of the selected RAM Location are put into the X Register|Mk.3
 RTY     |-        |Read from RAM to Y|The contents of the selected RAM Location are put into the Y Register|Mk.3
-USC     |-        |Use Carry|Enables the usage of the Carry Bit for the next Arithmetic Operation|Mk.3
+USC     |-        |Use Carry|Toggles the usage of the Carry Bit for the next Arithmetic Operation|Mk.3
 
 [^1]: RAM Location 1 (upper 4 bits)
 [^2]: RAM Location 2 (lower 4 bits)
