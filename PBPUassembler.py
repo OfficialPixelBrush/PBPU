@@ -3,7 +3,8 @@ import re
 import sys
 
 try:
-    t = open("mathThing.asm","r")#sys.argv[1], "r")
+    #t = open("testing.asm","r")
+    t = open(sys.argv[1], "r")
     text = t.read()
     text = text.upper()
     text = re.sub(';.*?\n', '\n', text)
@@ -15,14 +16,33 @@ except:
 
 print(text)
 final=[]
-labels=[]
+labelName=[]
+labelPos =[]
 
 for i,e in enumerate(text):
-    # Labels
+    # Labels first to allow jumping forward as well
     if e[-1] == ':':
-        labels.append(int(i/2)))
-        # todo: make these useful by having a JMP macro
-    
+        labelName.append(text[-1])
+        labelPos.append(len(final))
+
+for i,e in enumerate(text):
+    # MACRO
+    if (e=="JMPL"): # Jump Label
+        print(labelName)
+        num = int(labelPos[labelName.index(text[i+1])])
+        if (num > 15):
+            numUpper = num >> 4
+            numLower = num & 0xF
+            final.append(10*16+numLower) # PC1
+            final.append(11*16+numUpper) # PC2
+            final.append(12*16+num) # JMP
+        elif (num <= 15): 
+            final.append(10*16+num) # PC1
+            final.append(11*16) # PC2
+            final.append(12*16) # JMP
+            
+        
+    #print(i , e)
     # Instructions
     if (e=="NOP"):
         final.append(0*16)
