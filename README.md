@@ -44,11 +44,18 @@ Simply put your .asm file in as a Command-Line Argument and it should spit out a
 ### Examples
 There's also a fully commented Program which puts a Smiley on the Mark 2's PPU Screen.
 
+##### Mark 2 Smiley Program
 [PBPU Smiley (Assembly)](./examples/pbpuSmiley.asm)
 
 [PBPU Smiley (Binary)](./examples/pbpuSmiley.asm.bin)
 
 [Link to a Video Showcasing this Program on the Mark 2](https://twitter.com/pixel_brush/status/1390186715332153346?s=20)
+
+##### Addition Program
+[PBPU Add (Assembly)](./examples/add.asm)
+
+[PBPU Add (Binary)](./examples/add.asm.bin)
+
 
 ### Important to remember when Programming
 - You only have 256 Bytes of ROM, so your Program can't be bigger than that without a cheaty workaround
