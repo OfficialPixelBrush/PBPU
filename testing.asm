@@ -1,7 +1,12 @@
 WTY 1
+WTY 5
+SUB
+WTY 8
+JMPL gohere
 ADD
-test:
+NOP
 ADD
+gohere:
 WTX 1
 WTY 1
-JMPL test
+; automatic jump code

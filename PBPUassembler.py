@@ -14,7 +14,6 @@ except:
     print("No file given")
     exit()
 
-print(text)
 final=[]
 labelName=[]
 labelPos =[]
@@ -25,10 +24,8 @@ for i,e in enumerate(text):
         labelName.append(text[-1])
         labelPos.append(len(final))
 
-for i,e in enumerate(text):
     # MACRO
     if (e=="JMPL"): # Jump Label
-        print(labelName)
         num = int(labelPos[labelName.index(text[i+1])])
         if (num > 15):
             numUpper = num >> 4
