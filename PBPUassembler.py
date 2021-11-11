@@ -1,14 +1,9 @@
 import os
 import re
 import sys
-#from tkinter import Tk     # from tkinter import Tk for Python 3.x
-#from tkinter.filedialog import askopenfilename
-#from tkinter.filedialog import asksaveasfile
 
-#Tk().withdraw() # we don't want a full GUI, so keep the root window from appearing
-#asmFile = askopenfilename()
 try:
-    t = open(sys.argv[1], "r")
+    t = open("mathThing.asm","r")#sys.argv[1], "r")
     text = t.read()
     text = text.upper()
     text = re.sub(';.*?\n', '\n', text)
@@ -18,9 +13,17 @@ except:
     print("No file given")
     exit()
 
+print(text)
 final=[]
+labels=[]
 
 for i,e in enumerate(text):
+    # Labels
+    if e[-1] == ':':
+        labels.append(int(i/2)))
+        # todo: make these useful by having a JMP macro
+    
+    # Instructions
     if (e=="NOP"):
         final.append(0*16)
     if (e=="ADD"):

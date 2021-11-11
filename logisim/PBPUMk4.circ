@@ -181,7 +181,7 @@ end TCL_Generic;&#13;
     <a name="clabelfont" val="SansSerif bold 16"/>
     <a name="clabelup" val="east"/>
     <a name="downloadFrequency" val="-1.0"/>
-    <a name="simulationFrequency" val="2.0"/>
+    <a name="simulationFrequency" val="64.0"/>
     <comp lib="0" loc="(1010,630)" name="Pull Resistor"/>
     <comp lib="0" loc="(1060,410)" name="Pull Resistor"/>
     <comp lib="0" loc="(1100,640)" name="Pull Resistor"/>
@@ -366,7 +366,8 @@ end TCL_Generic;&#13;
     <comp lib="4" loc="(620,450)" name="ROM">
       <a name="appearance" val="logisim_evolution"/>
       <a name="contents">addr/data: 8 8
-71 51 e0 10 80 a3 70 c0
+61 71 51 e0 10 80 a3 70
+c0
 </a>
     </comp>
     <wire from="(1010,630)" to="(1060,630)"/>
