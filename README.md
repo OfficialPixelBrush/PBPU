@@ -82,11 +82,22 @@ The PPU was also expanded to use an 8x8 Grid, this was however scrapped due to i
 
 Talks of a proper I/O interface came along but these never came to be.
 
-##### Mark 4 (10th of November, 2021, ongoing)
+##### Mark 4 (10th of November, 2021)
 The Mark 4 is the latest Revision of the PBPU, meant to finally have it work exactly as intended.
 
 It's still in the early stages of re-learning how a lot of the circuits in the old designs worked, especially due to the switch from Logisim Classic to Logisim Evolution.
 I also no longer have access to the old Logisim Files, which makes this increasingly difficult.
+
+##### Update (11th of November, 2021)
+The Mark 4 appears to be functional, now supporting all originally inteded features!
+![[Pasted image 20211111133424.png]]
+It's messy, yes, but that can be worked out in the Mark 5.
+It also no longer relies on a messy self-built decoder, allowing for each Clock Cycle to run one instruction.
+
+The only currently known "bug" is the need for a NOP at the start of ROM, since the 1st Cylce Instruction is never loaded and executed.
+
+Here's a Diagram to detail how it works
+![[pbpumk4.svg]]
 
 # Old Datasheet
 This is the Datasheet where I hand-compiled my Programs and came up with all the Instructions
