@@ -4,7 +4,6 @@
 ; So this simplifed version will have to do
 ; --------------------------------------------------
 
-test:
 WTY 1 ; (CPU specific prep)
 WTZ 1 ;
 WTX 1 ; LOAD_B
