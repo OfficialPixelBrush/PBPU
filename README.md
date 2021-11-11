@@ -90,14 +90,14 @@ I also no longer have access to the old Logisim Files, which makes this increasi
 
 ##### Update (11th of November, 2021)
 The Mark 4 appears to be functional, now supporting all originally inteded features!
-![[Pasted image 20211111133424.png]]
+![[pbpuMk4Logisim.png]]
 It's messy, yes, but that can be worked out in the Mark 5.
 It also no longer relies on a messy self-built decoder, allowing for each Clock Cycle to run one instruction.
 
 The only currently known "bug" is the need for a NOP at the start of ROM, since the 1st Cylce Instruction is never loaded and executed.
 
 Here's a Diagram to detail how it works
-![[pbpumk4.svg]]
+![[./pbpumk4.svg]]
 
 # Old Datasheet
 This is the Datasheet where I hand-compiled my Programs and came up with all the Instructions
