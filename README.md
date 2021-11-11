@@ -106,6 +106,9 @@ The only currently known "bug" is the need for a NOP at the start of ROM, since 
 Here's a Diagram to detail how it works
 ![pbpumk4.svg](./pbpumk4.svg)
 
+And one that shows how this translates to the Mark 4
+![pbpumk4.svg](./pbpumk4overlay.svg)
+
 # Old Datasheet
 This is the Datasheet where I hand-compiled my Programs and came up with all the Instructions
 [(Old) PBPU Datasheet](./PBPUsheet.pdf)
