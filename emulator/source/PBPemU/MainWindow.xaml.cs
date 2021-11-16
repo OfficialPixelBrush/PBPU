@@ -22,7 +22,8 @@ namespace PBPemU
     /// </summary>
     public partial class MainWindow : Window
     {
-        byte[] rom = File.ReadAllBytes(@"C:\Users\tvirtman.SVA\Downloads\PBPU\examples\mathThing.asm.bin");
+        // PBPU Registers
+        byte[] rom = File.ReadAllBytes(@"C:\Users\tvirtman.SVA\Downloads\PBPU\examples\pbpuSmiley.asm.bin");
         byte[] ram = new byte[256];
         byte X = 0;
         uint Xmath = 0;
@@ -36,9 +37,24 @@ namespace PBPemU
         byte PC2 = 0;
         byte Carry = 0;
         bool useCarry = false;
+
+        // Misc Registers
         int romLocGlobal = 0;
         string currentCode = "";
         int clockSpeed = 200;
+
+        // Draw Pixel
+        public void drawPix(int x, int y)
+        {
+            System.Windows.Shapes.Rectangle rect = new System.Windows.Shapes.Rectangle();
+            rect.Stroke = new SolidColorBrush(Colors.LimeGreen);
+            rect.Fill = new SolidColorBrush(Colors.LimeGreen);
+            rect.Width = 40;
+            rect.Height = 40;
+            Canvas.SetLeft(rect, x*40);
+            Canvas.SetTop(rect, y*40);
+            canvasScreen.Children.Add(rect);
+        }
 
         public int makeLoc(byte high, byte low)
         {
@@ -59,6 +75,24 @@ namespace PBPemU
         {
             this.Dispatcher.BeginInvoke(new Action(() =>
             {
+                // Update Screen
+                canvasScreen.Children.Clear();
+                for (int y = 0; y < 4; y++)
+                {
+                    int row;
+                    row = ram[y];
+                    for (int x = 0; x < 4; x++)
+                    {
+                        int check = row & 1;
+                        if (check == 1)
+                        {
+                            drawPix(x, y);
+                        }
+                        row = Convert.ToByte(row >> 1);
+                    }
+                }
+
+                // Update Text
                 currentInstruction.Text = "Instruction: " + currentCode;
                 PCreg.Text = "PC: " + makeLoc(PC2, PC1).ToString();
                 PCregActual.Text = "PC2: " + romLocGlobal.ToString();
@@ -246,11 +280,6 @@ namespace PBPemU
                     Thread.Sleep(clockSpeed);
                 }
             }).Start();
-        }
-
-        private void updateClock(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            clockSpeed = Convert.ToInt32(clockSpeedSetting.Value);
         }
     }
 }

@@ -19,10 +19,10 @@ labelName=[]
 labelPos =[]
 
 for i,e in enumerate(text):
-    # Labels first to allow jumping forward as well
     if e[-1] == ':':
-        labelName.append(text[-1])
+        labelName.append(re.sub(':', '', text[i]))
         labelPos.append(len(final))
+        print(labelName)
 
     # MACRO
     if (e=="JMPL"): # Jump Label
@@ -37,6 +37,7 @@ for i,e in enumerate(text):
             final.append(10*16+num) # PC1
             final.append(11*16) # PC2
             final.append(12*16) # JMP
+            #examples/pbpuSmiley.asm
             
         
     #print(i , e)

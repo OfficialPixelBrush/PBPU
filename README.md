@@ -63,6 +63,11 @@ There's also a fully commented Program which puts a Smiley on the Mark 2's PPU S
 - Only 4-Bit Math
 - No Input whatsoever (Unless one of the RAM Locations is used for it in some cheaty workaround way)
 
+# Emulator
+A quickly slapped together Emulator written in C# that should emulate the PBPU Mk. 4 almost perfectly.
+[Download]()
+
+
 # History
 ### Original Goal
 The original Goal was to design a simple, yet functional 4-Bit CPU that could execute simple Programs.
