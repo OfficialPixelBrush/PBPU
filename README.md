@@ -65,6 +65,7 @@ There's also a fully commented Program which puts a Smiley on the Mark 2's PPU S
 
 # Emulator
 A quickly slapped together Emulator written in C# that should emulate the PBPU Mk. 4 almost perfectly.
+**Requires .NET 5.0**
 
 [Download](https://github.com/OfficialPixelBrush/PBPU/releases/tag/Release)
 
