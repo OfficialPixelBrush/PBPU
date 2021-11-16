@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
+using Microsoft.Win32;
 
 namespace PBPemU
 {
@@ -23,7 +24,7 @@ namespace PBPemU
     public partial class MainWindow : Window
     {
         // PBPU Registers
-        byte[] rom = File.ReadAllBytes(@"C:\Users\tvirtman.SVA\Downloads\PBPU\examples\pbpuSmiley.asm.bin");
+        byte[] rom = new byte[256];
         byte[] ram = new byte[256];
         byte X = 0;
         uint Xmath = 0;
@@ -37,6 +38,7 @@ namespace PBPemU
         byte PC2 = 0;
         byte Carry = 0;
         bool useCarry = false;
+        bool running = false;
 
         // Misc Registers
         int romLocGlobal = 0;
@@ -49,10 +51,10 @@ namespace PBPemU
             System.Windows.Shapes.Rectangle rect = new System.Windows.Shapes.Rectangle();
             rect.Stroke = new SolidColorBrush(Colors.LimeGreen);
             rect.Fill = new SolidColorBrush(Colors.LimeGreen);
-            rect.Width = 40;
-            rect.Height = 40;
-            Canvas.SetLeft(rect, x*40);
-            Canvas.SetTop(rect, y*40);
+            rect.Width = canvasScreen.ActualWidth/4;
+            rect.Height = canvasScreen.ActualHeight / 4;
+            Canvas.SetLeft(rect, x* rect.Width);
+            Canvas.SetTop(rect, y*rect.Height);
             canvasScreen.Children.Add(rect);
         }
 
@@ -73,57 +75,47 @@ namespace PBPemU
 
         public void UpdateUI()
         {
-            this.Dispatcher.BeginInvoke(new Action(() =>
-            {
-                // Update Screen
-                canvasScreen.Children.Clear();
-                for (int y = 0; y < 4; y++)
-                {
-                    int row;
-                    row = ram[y];
-                    for (int x = 0; x < 4; x++)
-                    {
-                        int check = row & 1;
-                        if (check == 1)
-                        {
-                            drawPix(x, y);
+            try {
+                this.Dispatcher.BeginInvoke(new Action(() => {
+                    // Update Screen
+                    canvasScreen.Children.Clear();
+                    for (int y = 0; y < 4; y++) {
+                        int row;
+                        row = ram[y];
+                        for (int x = 0; x < 4; x++) {
+                            int check = row & 1;
+                            if (check == 1) {
+                                drawPix(x, y);
+                            }
+                            row = Convert.ToByte(row >> 1);
                         }
-                        row = Convert.ToByte(row >> 1);
                     }
-                }
 
-                // Update Text
-                currentInstruction.Text = "Instruction: " + currentCode;
-                PCreg.Text = "PC: " + makeLoc(PC2, PC1).ToString();
-                PCregActual.Text = "PC2: " + romLocGlobal.ToString();
-                LocReg.Text = "Loc: " + makeLoc(Loc1, Loc2).ToString();
-                Xreg.Text = "X: " + X.ToString();
-                Yreg.Text = "Y: " + Y.ToString();
-                Zreg.Text = "Z: " + Z.ToString();
-                ramUI.Text = "RAM:";
-                for (int i = 0; i < ram.Length; i++)
-                {
-                    if (i % 32 == 0)
-                    {
-                        ramUI.Text += "\n";
+                    // Update Text
+                    currentInstruction.Text = "Instruction: " + currentCode;
+                    PCreg.Text = "PC: " + makeLoc(PC2, PC1).ToString();
+                    PCregActual.Text = "PC2: " + romLocGlobal.ToString();
+                    LocReg.Text = "Loc: " + makeLoc(Loc1, Loc2).ToString();
+                    Xreg.Text = "X: " + X.ToString();
+                    Yreg.Text = "Y: " + Y.ToString();
+                    Zreg.Text = "Z: " + Z.ToString();
+                    ramUI.Text = "RAM:\n";
+                    for (int i = 0; i < ram.Length; i++) {
+                        ramUI.Text += ram[i].ToString("X") + " ";
                     }
-                    ramUI.Text += ram[i].ToString("X") + " ";
-                }
 
-                romUI.Text = "ROM:";
-                for (int i = 0; i < rom.Length; i++)
-                {
-                    if (i % 32 == 0)
-                    {
-                        romUI.Text += "\n";
+                    romUI.Text = "ROM:\n";
+                    for (int i = 0; i < rom.Length; i++) {
+                        if (i == romLocGlobal) {
+                            romUI.Text += rom[i].ToString("X") + "<";
+                        } else {
+                            romUI.Text += rom[i].ToString("X") + " ";
+                        }
                     }
-                    if (i == romLocGlobal) {
-                        romUI.Text += rom[i].ToString("X") + "<";
-                    } else {
-                        romUI.Text += rom[i].ToString("X") + " ";
-                    }
-                }
-            }));
+                }));
+            } catch {
+                // Sad :(
+            }
         }
 
         public MainWindow()
@@ -133,11 +125,39 @@ namespace PBPemU
 
         private void runProgram(object sender, RoutedEventArgs e)
         {
-            mainCode();
+            if (running == false) {
+                resetAll();
+                mainCode();
+            }
+        }
+
+        private void stopProgram(object sender, RoutedEventArgs e) {
+            Environment.Exit(0);
+        }
+
+        public void resetAll() {
+            ram = new byte[256];
+            X = 0;
+            Xmath = 0;
+            Y = 0;
+            Ymath = 0;
+            Z = 0;
+            Zmath = 0;
+            Loc1 = 0;
+            Loc2 = 0;
+            PC1 = 0;
+            PC2 = 0;
+            Carry = 0;
+            useCarry = false;
+            running = false;
         }
 
         public void mainCode()
         {
+
+            if (running == false) {
+                //Thread.CurrentThread.Interrupt();
+            }
             new Thread(() =>
             {
                 Thread.CurrentThread.IsBackground = true;
@@ -279,7 +299,22 @@ namespace PBPemU
                     UpdateUI();
                     Thread.Sleep(clockSpeed);
                 }
+                running = false;
             }).Start();
+        }
+
+        private void openAsmFile(object sender, RoutedEventArgs e) {
+            var fileContent = string.Empty;
+            var filePath = string.Empty;
+
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == true)
+                rom = File.ReadAllBytes(openFileDialog.FileName);
+        }
+
+        private void clockSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e) {
+            clockSpeed = Convert.ToInt32(clockSlider.Value);
+            clockDisplay.Text = "Clock Speed\n" + (Math.Round(1000 / clockSlider.Value, 2)).ToString() + "Hz";
         }
     }
 }

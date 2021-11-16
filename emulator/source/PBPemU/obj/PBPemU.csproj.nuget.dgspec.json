@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tvirtman.SVA\\Downloads\\PBPU\\emulator\\source\\PBPemU\\PBPemU.csproj": {}
+    "F:\\PBPU\\emulator\\source\\PBPemU\\PBPemU.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tvirtman.SVA\\Downloads\\PBPU\\emulator\\source\\PBPemU\\PBPemU.csproj": {
+    "F:\\PBPU\\emulator\\source\\PBPemU\\PBPemU.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tvirtman.SVA\\Downloads\\PBPU\\emulator\\source\\PBPemU\\PBPemU.csproj",
+        "projectUniqueName": "F:\\PBPU\\emulator\\source\\PBPemU\\PBPemU.csproj",
         "projectName": "PBPemU",
-        "projectPath": "C:\\Users\\tvirtman.SVA\\Downloads\\PBPU\\emulator\\source\\PBPemU\\PBPemU.csproj",
-        "packagesPath": "C:\\Users\\tvirtman.SVA\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tvirtman.SVA\\Downloads\\PBPU\\emulator\\source\\PBPemU\\obj\\",
+        "projectPath": "F:\\PBPU\\emulator\\source\\PBPemU\\PBPemU.csproj",
+        "packagesPath": "C:\\Users\\letsp\\.nuget\\packages\\",
+        "outputPath": "F:\\PBPU\\emulator\\source\\PBPemU\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\tvirtman.SVA\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\letsp\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -57,7 +57,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
