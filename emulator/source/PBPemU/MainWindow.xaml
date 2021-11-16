@@ -1,0 +1,22 @@
+﻿<Window x:Name="PBPemU" x:Class="PBPemU.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PBPemU"
+        mc:Ignorable="d"
+        Title="PBPemU" Height="450" Width="800">
+    <Grid>
+        <TextBlock x:Name="Xreg" HorizontalAlignment="Left" Margin="10,10,0,0" Text="X:" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Consolas"/>
+        <TextBlock x:Name="Yreg" HorizontalAlignment="Left" Margin="10,29,0,0" Text="Y:" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Consolas"/>
+        <TextBlock x:Name="Zreg" HorizontalAlignment="Left" Margin="10,48,0,0" Text="Z:" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Consolas"/>
+        <TextBlock x:Name="ramUI" HorizontalAlignment="Left" Margin="10,67,0,0" Text="RAM:" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Consolas"/>
+        <Button x:Name="playButton" Content="Play" HorizontalAlignment="Left" Margin="226,10,0,0" VerticalAlignment="Top" Click="runProgram" Height="26" Width="48"/>
+        <TextBlock x:Name="romUI" HorizontalAlignment="Left" Margin="10,278,0,0" Text="ROM:" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Consolas"/>
+        <TextBlock x:Name="currentInstruction" HorizontalAlignment="Left" Margin="10,231,0,0" Text="Instruction:" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Consolas"/>
+        <Slider x:Name="clockSpeedSetting" HorizontalAlignment="Left" Margin="322,14,0,0" VerticalAlignment="Top" Width="188" Maximum="1000" Minimum="-2" Value="100" FontFamily="Consolas" DataContextChanged="updateClock"/>
+        <TextBlock x:Name="PCreg" HorizontalAlignment="Left" Margin="95,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Consolas"><Run Language="de-de" Text="PC"/><Run Text=":"/></TextBlock>
+        <TextBlock x:Name="LocReg" HorizontalAlignment="Left" Margin="95,48,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Consolas"><Run Language="de-de" Text="Loc"/><Run Text=":"/></TextBlock>
+        <TextBlock x:Name="PCregActual" HorizontalAlignment="Left" Margin="95,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Consolas" Height="14"><Run Text="PC"/><Run Language="de-de" Text="2:"/><LineBreak/><Run/></TextBlock>
+    </Grid>
+</Window>
