@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\letsp\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\letsp\\.nuget\\packages"
+    ]
+  }
+}
